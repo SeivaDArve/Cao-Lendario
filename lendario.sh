@@ -1,2 +1,16 @@
 #!/bin/bash
-echo Cao-Lendario
+__name__="Lendario"  # Change to the name of the script. Example: DRYa.sh, ezGIT.sh, Patuscas.sh (Set this variable at the head of the file, next to title)
+
+# Sourcing DRYa Lib 1: Color schemes
+   __name__="Lendario"  # Change to the name of the script. Example: DRYa.sh, ezGIT.sh, Patuscas.sh (Set this variable at the head of the file, next to title)
+   v_lib1=${v_REPOS_CENTER}/DRYa/all/lib/libs/drya-lib-1-colors-greets.sh
+   source $v_lib1 2>/dev/null || (read -s -n 1 -p "DRYa libs: $__name__: drya-lib-1 does not exist (error)" && echo )
+
+   v_greet="Lendario"
+   v_talk="lendario: "
+
+f_greet
+f_talk; echo "Mes atual"
+        echo
+
+cal
