@@ -8,7 +8,7 @@ __repo__=${v_REPOS_CENTER}/Cao-Lendario
    source $v_lib1 2>/dev/null || (read -s -n 1 -p "DRYa libs: $__name__: drya-lib-1 does not exist (error)" && echo )
 
    v_greet="Lendario"
-   v_talk="lendario: "
+   v_talk="cao-lendario: "
 
 f_greet
 f_talk; echo "Mes atual"
