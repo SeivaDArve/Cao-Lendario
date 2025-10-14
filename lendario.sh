@@ -1,4 +1,8 @@
 #!/bin/bash
+# Title: Cao-Lendario
+# Description: Repo Publica, cujas datas, lembretes, agendamentos sao info proveninete de outras repos que Lendario vai la absorver (path em $v_xyx_repo/all/lebdario/cao-lendario-food.sh
+#              Esta repo vai a ${v_REPOS_CENTER}/ buscar recurivamente 'cao-lendario-food'
+
 __name__="Lendario"  # Change to the name of the script. Example: DRYa.sh, ezGIT.sh, Patuscas.sh (Set this variable at the head of the file, next to title)
 __repo__=${v_REPOS_CENTER}/Cao-Lendario
 
@@ -10,23 +14,51 @@ __repo__=${v_REPOS_CENTER}/Cao-Lendario
    v_greet="Lendario"
    v_talk="cao-lendario: "
 
-f_greet
-f_talk; echo "Mes atual"
-        echo
-
-cal
 
 
 
 
 if [ -z $1 ]; then
-   echo "none"
+   f_greet
+   f_talk; echo "Mes atual"
+           echo
+
+   cal
 
 elif [ $1 == "." ]; then
    bash e $__repo__/lendario.sh
 
-elif [ $1 == "2" ] || [ $1 == "3" ]; then
-   echo "2 or 3"
+elif [ $1 == "r" ] || [ $1 == "random-line-from-ToDo-file" ]; then
+   v_file=${v_REPOS_CENTER}/omni-log/all/ex-pressa/td.org
+
+   f_greet
+   f_talk; echo "Linha aleatoria do ficheiro:"
+           echo " > $v_file" 
+
+
+
+   if [ -f $v_file ]; then
+
+      function f_find_line {
+         v_number=$(wc -l $v_file | cut -f 1 -d " ")
+         v_number=$(shuf -n 1 -i 0-$v_number)
+         v_line=$(head -n $v_number $v_file | tail -n 1)
+      }
+      
+      f_find_line 
+      [[ -z $v_line ]] && echo
+
+      while [[ -z $v_line ]]; 
+      do
+         echo "repeat"
+         f_find_line 
+      done
+
+              echo
+      f_talk; echo "Linha $v_number"
+              echo " > $v_line"
+
+   fi
 
 else
    echo "uDev: help"
