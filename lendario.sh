@@ -29,6 +29,9 @@ elif [ $1 == "." ]; then
    bash e $__repo__/lendario.sh
 
 elif [ $1 == "r" ] || [ $1 == "random-line-from-ToDo-file" ]; then
+   # Busca uma unica linha aleatoria do ficheiro td.org
+   # uDev: Filtras so as linhas que tem o texto "- [ ]"
+
    v_file=${v_REPOS_CENTER}/omni-log/all/ex-pressa/td.org
 
    f_greet
